@@ -79,18 +79,26 @@
         .btn-outline { border: 2px solid var(--gray); color: var(--text); }
         .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.05); }
 
-        /* --- MOCKUP REAL (O Celular com Iframe) --- */
-        .mockup-wrapper { perspective: 1000px; display: flex; justify-content: center; }
+        /* --- MOCKUP REAL (Upgrade V4.0) --- */
+        .mockup-wrapper { 
+            margin-top: 60px; 
+            perspective: 1000px; 
+            display: flex; 
+            justify-content: center;
+            /* Adiciona um padding embaixo para o celular não bater no fim da section */
+            padding-bottom: 40px; 
+        }
         
         .phone-frame {
-            width: 320px; 
-            height: 600px; /* Altura fixa para caber o site */
+            /* Largura aumentada para padrão moderno (era 320px) */
+            width: 360px; 
+            height: 700px; 
             background: #000; 
-            border-radius: 40px; 
-            border: 8px solid #1e293b; /* Borda do celular */
+            border-radius: 50px; /* Curva mais suave */
+            border: 12px solid #1e293b; /* Borda mais grossa e premium */
             position: relative; 
-            overflow: hidden; /* Corta o que passar */
-            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            overflow: hidden; 
+            box-shadow: 0 40px 100px rgba(0,0,0,0.7); /* Sombra mais profunda */
             transform: rotateX(5deg); 
             transition: transform 0.5s;
         }
@@ -101,15 +109,36 @@
             width: 100%; 
             height: 100%; 
             border: none; 
-            background: white; /* Fundo branco pra não ficar transparente */
+            background: white;
+            /* Arredonda o iframe também para não vazar pixels brancos nos cantos */
+            border-radius: 38px; 
+            
+            /* Truque para esconder barra de rolagem mas permitir scroll */
+            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
         }
         
-        /* Câmera Frontal (Notch) */
+        /* Esconder barra no Chrome/Safari */
+        .phone-frame iframe::-webkit-scrollbar { 
+            display: none; 
+        }
+        
+        /* Câmera Frontal (Notch Dinâmico) */
         .phone-frame::before {
             content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-            width: 150px; height: 25px; background: #1e293b;
-            border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;
-            z-index: 10;
+            width: 120px; height: 30px; background: #1e293b;
+            border-bottom-left-radius: 18px; border-bottom-right-radius: 18px;
+            z-index: 20; /* Garante que fique acima do iframe */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        /* RESPONSIVO (Para telas menores que o celular mockup) */
+        @media(max-width: 450px) {
+            .phone-frame { 
+                width: 300px; /* Reduz um pouco em celulares reais pequenos */
+                height: 600px; 
+                border-width: 8px;
+            }
         }
 
         /* BENEFÍCIOS */
