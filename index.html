@@ -13,7 +13,7 @@
             --bg: #0f172a; /* Azul Noturno */
             --card: #1e293b;
             --primary: #3b82f6; /* Azul Tech */
-            --action: #f97316; /* Laranja Conversão (Botões Principais) */
+            --action: #f97316; /* Laranja Conversão */
             --whatsapp: #25D366; /* Verde Oficial do Zap */
             --text: #f8fafc;
             --gray: #94a3b8;
@@ -38,7 +38,6 @@
         /* BRANDING */
         .brand { display: flex; align-items: center; gap: 12px; }
         .brand img { height: 45px; width: auto; } 
-        /* (1) Nome Atualizado */
         .brand-text { font-weight: 900; font-size: 1.1rem; color: white; text-transform: uppercase; letter-spacing: 0.5px; }
 
         /* Botão do Header */
@@ -48,7 +47,6 @@
             display: flex; align-items: center; gap: 8px;
         }
         .btn-header:hover { background: white; color: var(--bg); }
-        /* (2) Ícone Verde Específico */
         .btn-header i { color: var(--whatsapp); font-size: 1.1rem; }
 
         /* HERO SECTION */
@@ -113,15 +111,12 @@
             border: none; background: white; scrollbar-width: none;
         }
 
-        /* (3) Câmera Bolinha (Punch-hole) */
+        /* Câmera Bolinha (Punch-hole) */
         .phone-frame::before {
             content: ''; position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
             width: 14px; height: 14px; 
-            background: #111; /* Preto quase puro */
-            border-radius: 50%; /* Redondo */
-            z-index: 20;
-            box-shadow: inset 0 0 4px rgba(255,255,255,0.1); /* Brilho sutil */
-            border: 1px solid #333;
+            background: #111; border-radius: 50%; 
+            z-index: 20; box-shadow: inset 0 0 4px rgba(255,255,255,0.1); border: 1px solid #333;
         }
 
         .mockup-cta { margin-top: 40px; }
@@ -138,15 +133,22 @@
         .card h3 { margin-bottom: 10px; color: white; }
         .card p { color: var(--gray); font-size: 0.9rem; }
 
-        /* OFERTA */
-        .offer { background: linear-gradient(180deg, var(--card) 0%, var(--bg) 100%); padding: 80px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+        /* OFERTA COM TEXTURA */
+        .offer { 
+            /* Gradiente Escuro + Imagem de Fundo (fundo-oferta.jpg) */
+            background: linear-gradient(rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.98)), url('fundo-oferta.jpg');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            padding: 100px 0; 
+            text-align: center; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+        }
         .offer h3 { font-size: 1rem; margin-bottom: 10px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; }
         .offer h2 { font-size: 2rem; margin-bottom: 10px; color: white; }
         
         .price { font-size: 3.5rem; font-weight: 900; margin: 20px 0; color: white; }
         .price span { font-size: 1.2rem; color: var(--gray); font-weight: 400; display: block; margin-top: 5px; }
 
-        /* (5) FOOTER CORRIGIDO */
+        /* FOOTER (1 Linha) */
         footer { background: #020617; padding: 25px 0; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--gray); }
         
         .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
@@ -155,7 +157,7 @@
         .footer-brand img { height: 30px; width: auto; opacity: 0.8; }
         .footer-brand span { font-weight: 700; color: white; letter-spacing: 1px; }
 
-        .footer-text { text-align: right; font-size: 0.8rem; opacity: 0.8; }
+        .footer-text { text-align: right; opacity: 0.8; }
 
         /* RESPONSIVO */
         @media(max-width: 600px) {
