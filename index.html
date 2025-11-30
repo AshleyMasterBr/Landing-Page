@@ -13,17 +13,18 @@
             --bg: #0f172a; /* Azul Noturno */
             --card: #1e293b;
             --primary: #3b82f6; /* Azul Tech */
-            --accent: #25D366; /* Verde Zap */
+            --action: #f97316; /* Laranja Conversão (Substituto do Verde) */
             --text: #f8fafc;
             --gray: #94a3b8;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
         
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
         
-        /* HEADER */
+        /* HEADER (Ajustado) */
         header { 
             padding: 15px 0; 
             border-bottom: 1px solid rgba(255,255,255,0.1); 
@@ -31,24 +32,27 @@
             position: sticky; top: 0; z-index: 100; 
             backdrop-filter: blur(10px);
         }
-        .nav-flex { display: flex; justify-content: center; align-items: center; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; } /* Logo esq, Botão dir */
         
         /* BRANDING */
-        .brand { display: flex; align-items: center; gap: 10px; }
-        .brand img { height: 35px; width: auto; } 
-        .brand-text { font-weight: 900; font-size: 1.2rem; color: white; text-transform: uppercase; letter-spacing: 1px; }
+        .brand { display: flex; align-items: center; gap: 12px; }
+        .brand img { height: 45px; width: auto; } /* Logo Aumentada */
+        .brand-text { font-weight: 900; font-size: 1.3rem; color: white; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Botão do Header */
+        .btn-header {
+            font-size: 0.9rem; font-weight: 600; color: white; border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 16px; border-radius: 6px; text-decoration: none; transition: 0.3s;
+        }
+        .btn-header:hover { background: white; color: var(--bg); }
+        .btn-header i { margin-right: 5px; color: var(--action); }
 
         /* HERO SECTION */
         .hero { 
             padding: 60px 0 80px 0; 
             text-align: center;
-            
-            /* Fundo com Imagem + Máscara Escura */
-            /* Certifique-se de ter uma imagem chamada 'fundo.jpg' na pasta, ou o fundo ficará apenas azul escuro */
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('fundo.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: linear-gradient(rgba(15, 23, 42, 0.90), rgba(15, 23, 42, 0.98)), url('fundo.jpg');
+            background-size: cover; background-position: center; background-attachment: fixed;
             position: relative;
         }
         
@@ -65,13 +69,11 @@
             -webkit-text-fill-color: transparent; color: transparent;
         }
         
-        .hero p { 
-            font-size: 1.2rem; color: var(--gray); max-width: 600px; margin: 0 auto 50px auto; 
-        }
+        .hero p { font-size: 1.2rem; color: var(--gray); max-width: 600px; margin: 0 auto 50px auto; }
         
-        /* BOTÕES */
+        /* BOTÕES PRINCIPAIS */
         .cta-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
-        .btn { padding: 16px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: 0.3s; font-size: 1rem; }
+        .btn { padding: 16px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: 0.3s; font-size: 1rem; cursor: pointer; }
         
         .btn-primary { background: var(--primary); color: white; box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
@@ -79,71 +81,44 @@
         .btn-outline { border: 2px solid var(--gray); color: var(--text); }
         .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.05); }
 
-        /* --- MOCKUP REAL (Upgrade V4.0) --- */
-        .mockup-wrapper { 
-            margin-top: 60px; 
-            perspective: 1000px; 
-            display: flex; 
-            justify-content: center;
-            /* Adiciona um padding embaixo para o celular não bater no fim da section */
-            padding-bottom: 40px; 
+        /* BOTÃO DE AÇÃO (Laranja - Substitui o verde) */
+        .btn-action-main {
+            background: var(--action); color: white; 
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
         }
-        
+        .btn-action-main:hover { background: #ea580c; transform: translateY(-3px); }
+
+        /* --- MOCKUP REAL (Upscale) --- */
+        .mockup-wrapper { 
+            perspective: 1000px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding-bottom: 20px; 
+        }
         .phone-frame {
-            /* Largura aumentada para padrão moderno (era 320px) */
-            width: 360px; 
-            height: 700px; 
-            background: #000; 
-            border-radius: 50px; /* Curva mais suave */
-            border: 12px solid #1e293b; /* Borda mais grossa e premium */
-            position: relative; 
-            overflow: hidden; 
-            box-shadow: 0 40px 100px rgba(0,0,0,0.7); /* Sombra mais profunda */
-            transform: rotateX(5deg); 
-            transition: transform 0.5s;
+            width: 340px; height: 680px; 
+            background: #000; border-radius: 50px; border: 10px solid #1e293b; 
+            position: relative; overflow: hidden; 
+            box-shadow: 0 40px 100px rgba(0,0,0,0.7); 
+            transform: rotateX(5deg); transition: transform 0.5s;
         }
         .phone-frame:hover { transform: rotateX(0deg) scale(1.02); }
-
-        /* O Iframe (Site Dentro do Celular) */
         .phone-frame iframe {
-            width: 100%; 
-            height: 100%; 
-            border: none; 
-            background: white;
-            /* Arredonda o iframe também para não vazar pixels brancos nos cantos */
-            border-radius: 38px; 
-            
-            /* Truque para esconder barra de rolagem mas permitir scroll */
-            scrollbar-width: none;  /* Firefox */
-            -ms-overflow-style: none;  /* IE and Edge */
+            width: 120.5%; height: 120.5%; 
+            transform: scale(0.83); transform-origin: top left; 
+            border: none; background: white; scrollbar-width: none;
         }
-        
-        /* Esconder barra no Chrome/Safari */
-        .phone-frame iframe::-webkit-scrollbar { 
-            display: none; 
-        }
-        
-        /* Câmera Frontal (Notch Dinâmico) */
         .phone-frame::before {
             content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
             width: 120px; height: 30px; background: #1e293b;
-            border-bottom-left-radius: 18px; border-bottom-right-radius: 18px;
-            z-index: 20; /* Garante que fique acima do iframe */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            border-bottom-left-radius: 18px; border-bottom-right-radius: 18px; z-index: 20;
         }
 
-        /* RESPONSIVO (Para telas menores que o celular mockup) */
-        @media(max-width: 450px) {
-            .phone-frame { 
-                width: 300px; /* Reduz um pouco em celulares reais pequenos */
-                height: 600px; 
-                border-width: 8px;
-            }
-        }
+        /* CTA Embaixo do Celular */
+        .mockup-cta { margin-top: 40px; }
 
         /* BENEFÍCIOS */
-        .benefits { padding: 80px 0; background: #0f172a; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .benefits { padding: 80px 0; background: #0f172a; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; text-align: left; }
         .card { 
             background: var(--card); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); 
             transition: transform 0.3s ease, border-color 0.3s ease;
@@ -160,22 +135,23 @@
         
         .price { font-size: 3.5rem; font-weight: 900; margin: 20px 0; color: white; }
         .price span { font-size: 1.2rem; color: var(--gray); font-weight: 400; display: block; margin-top: 5px; }
-        
-        .btn-whatsapp { background: var(--accent); color: white; width: 100%; max-width: 400px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-size: 1.2rem; margin-top: 20px; }
-        .btn-whatsapp:hover { background: #1ebc57; transform: scale(1.05); }
 
-        /* FOOTER */
-        footer { background: #020617; text-align: center; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray); font-size: 0.85rem; }
-        .cnpj { margin-top: 10px; opacity: 0.6; font-size: 0.75rem; }
+        /* FOOTER (Compacto) */
+        footer { background: #020617; padding: 25px 0; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--gray); }
+        .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .footer-brand { display: flex; align-items: center; gap: 10px; }
+        .footer-brand img { height: 30px; width: auto; opacity: 0.8; }
+        .footer-brand span { font-weight: 700; color: white; letter-spacing: 1px; }
 
         /* RESPONSIVO */
         @media(max-width: 600px) {
             h1 { font-size: 2rem; }
+            .nav-flex { flex-direction: column; gap: 15px; } /* Em mobile, empilha logo e botão */
+            .footer-row { flex-direction: column; text-align: center; }
             .cta-group { flex-direction: column; }
             .btn { width: 100%; text-align: center; }
-            
-            /* Ajuste do celular em telas pequenas */
-            .phone-frame { width: 280px; height: 520px; }
+            .phone-frame { width: 300px; height: 600px; }
+            .phone-frame iframe { width: 136.6%; height: 136.6%; transform: scale(0.73); }
         }
     </style>
 </head>
@@ -184,21 +160,23 @@
     <header>
         <div class="container nav-flex">
             <div class="brand">
-                <img src="logo.png" alt="Logo" onerror="this.style.display='none'"> 
+                <img src="logo.png" alt="Legado" onerror="this.src='https://placehold.co/50x50/3b82f6/FFF?text=L'"> 
                 <div class="brand-text">LEGADO MÍDIA</div>
             </div>
+            <a href="https://wa.me/5511913393797" class="btn-header">
+                <i class="fab fa-whatsapp"></i> Falar com Consultor
+            </a>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
             <span class="tag">Exclusivo para Lojas de Pisos</span>
-            
             <h1>Pare de perder tempo fazendo orçamento para curioso.</h1>
             <p>Transforme seu site em um vendedor 24h. O cliente calcula, vê o preço estimado e agenda a visita técnica sozinho no seu WhatsApp.</p>
             
             <div class="cta-group">
-                <a href="https://wa.me/5511913393797?text=Ol%C3%A1%2C%20vi%20o%20sistema%20da%20Legado%20e%20quero%20saber%20mais." class="btn btn-primary">
+                <a href="#oferta" class="btn btn-primary">
                     QUERO AUTOMATIZAR MINHA LOJA
                 </a>
                 <a href="https://ashleymasterbr.github.io/Wireflame-M-quina-de-Or-amentos-Pisos/" target="_blank" class="btn btn-outline">
@@ -209,6 +187,12 @@
             <div class="mockup-wrapper">
                 <div class="phone-frame">
                     <iframe src="https://ashleymasterbr.github.io/Wireflame-M-quina-de-Or-amentos-Pisos/" title="Demonstração do Sistema" loading="lazy"></iframe>
+                </div>
+                
+                <div class="mockup-cta">
+                    <a href="https://wa.me/5511913393797?text=Quero%20testar%20na%20minha%20loja" class="btn btn-action-main">
+                        QUERO ESSA MÁQUINA DE VENDAS <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -234,10 +218,16 @@
                     <p>Não precisa refazer seu site. Nós instalamos a ferramenta com sua logo e seus preços em 24h.</p>
                 </div>
             </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="#oferta" class="btn btn-outline">
+                    Ver Planos e Preços
+                </a>
+            </div>
         </div>
     </section>
 
-    <section class="offer">
+    <section class="offer" id="oferta">
         <div class="container">
             <h3>Investimento Inteligente</h3>
             <h2>Tenha sua Máquina de Vendas</h2>
@@ -248,9 +238,10 @@
             </div>
             <p style="margin-bottom: 30px; color: var(--gray);">+ Manutenção Mensal de R$ 149,00</p>
 
-            <a href="https://wa.me/5511913393797?text=Ol%C3%A1%2C%20quero%20contratar%20a%20instala%C3%A7%C3%A3o%20do%20sistema%20de%20pisos." class="btn btn btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> CONTRATAR AGORA
+            <a href="https://wa.me/5511913393797?text=Ol%C3%A1%2C%20quero%20contratar%20a%20instala%C3%A7%C3%A3o%20do%20sistema%20de%20pisos." class="btn btn-action-main" style="padding: 20px 40px; font-size: 1.2rem;">
+                CONTRATAR AGORA <i class="fas fa-check-circle"></i>
             </a>
+            
             <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gray);">
                 <i class="fas fa-lock"></i> Compra segura. Parcelamos a instalação no cartão.
             </p>
@@ -258,12 +249,16 @@
     </section>
 
     <footer>
-        <div class="container">
-            <div class="brand" style="justify-content: center; margin-bottom: 10px;">
-                <div class="brand-text">LEGADO MÍDIA</div>
+        <div class="container footer-row">
+            <div class="footer-brand">
+                <img src="logo.png" alt="Legado" onerror="this.src='https://placehold.co/30x30/3b82f6/FFF?text=L'">
+                <span>LEGADO MÍDIA</span>
             </div>
-            <p>&copy; 2025 Legado Mídia. Todos os direitos reservados.</p>
-            <p class="cnpj">CNPJ: 14.689.880/0001-60</p>
+            
+            <div style="text-align: right;">
+                <p>&copy; 2025 Legado Mídia. Todos os direitos reservados.</p>
+                <p style="font-size: 0.75rem; opacity: 0.6;">CNPJ: 14.689.880/0001-60</p>
+            </div>
         </div>
     </footer>
 
