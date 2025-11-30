@@ -4,49 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legado Mídia | Automação para Lojas de Pisos</title>
+    <a href="https://wa.me/5511913393797?text=Ol%C3%A1%2C%20vi%20o%20sistema%20da%20Legado%20e%20quero%20saber%20mais." class="btn btn-primary">
+                    QUERO AUTOMATIZAR MINHA LOJA
+                </a>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         /* --- ESTILO DARK PREMIUM --- */
         :root {
-            --bg: #0f172a;
+            --bg: #0f172a; /* Azul Noturno */
             --card: #1e293b;
-            --primary: #3b82f6;
-            --accent: #25D366;
+            --primary: #3b82f6; /* Azul Tech */
+            --accent: #25D366; /* Verde Zap */
             --text: #f8fafc;
             --gray: #94a3b8;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
         
         /* HEADER */
-        header { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 100; }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        header { 
+            padding: 15px 0; 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            background: rgba(15, 23, 42, 0.95); 
+            position: sticky; top: 0; z-index: 100; 
+            backdrop-filter: blur(10px);
+        }
+        .nav-flex { display: flex; justify-content: center; align-items: center; }
         
-        /* LOGO + TEXTO */
+        /* BRANDING */
         .brand { display: flex; align-items: center; gap: 10px; }
-        .brand img { height: 40px; width: auto; } /* Ajuste a altura da logo aqui */
-        .brand-text { font-weight: 700; font-size: 1.1rem; color: white; text-transform: uppercase; letter-spacing: 1px; }
+        .brand img { height: 35px; width: auto; } 
+        .brand-text { font-weight: 900; font-size: 1.2rem; color: white; text-transform: uppercase; letter-spacing: 1px; }
 
         /* HERO SECTION */
         .hero { 
             padding: 60px 0 80px 0; 
             text-align: center;
             
-            /* (1) Fundo com Imagem + Máscara Escura para ler o texto */
+            /* Fundo com Imagem + Máscara Escura */
+            /* Certifique-se de ter uma imagem chamada 'fundo.jpg' na pasta, ou o fundo ficará apenas azul escuro */
             background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('fundo.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Efeito Parallax chique */
+            background-attachment: fixed;
             position: relative;
         }
         
         .tag { 
             background: rgba(59, 130, 246, 0.15); color: var(--primary); border: 1px solid rgba(59, 130, 246, 0.3);
             padding: 6px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; 
-            display: inline-block; margin-bottom: 25px; /* (1) Ajustado */
+            display: inline-block; margin-bottom: 25px; 
         }
         
         h1 { 
@@ -57,45 +69,45 @@
         }
         
         .hero p { 
-            font-size: 1.2rem; color: var(--gray); max-width: 600px; margin: 0 auto; 
-            margin-bottom: 50px; /* (2) Espaço aumentado antes dos botões */
+            font-size: 1.2rem; color: var(--gray); max-width: 600px; margin: 0 auto 50px auto; 
         }
         
         /* BOTÕES */
-        .cta-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .cta-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
         .btn { padding: 16px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: 0.3s; font-size: 1rem; }
+        
         .btn-primary { background: var(--primary); color: white; box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
+        
         .btn-outline { border: 2px solid var(--gray); color: var(--text); }
         .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.05); }
 
-        /* (3) MOCKUP CSS (O Celular Falso) */
-        .mockup-wrapper { margin-top: 60px; perspective: 1000px; display: flex; justify-content: center; }
-        .phone-frame {
-            width: 320px; height: 580px; background: #000; border-radius: 40px; border: 8px solid #333;
-            position: relative; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-            transform: rotateX(5deg); transition: transform 0.5s;
-        }
-        .phone-frame:hover { transform: rotateX(0deg) scale(1.02); }
+        /* --- MOCKUP REAL (O Celular com Iframe) --- */
+        .mockup-wrapper { perspective: 1000px; display: flex; justify-content: center; }
         
-       /* O Celular */
-        .mockup-wrapper { margin-top: 60px; perspective: 1000px; display: flex; justify-content: center; }
         .phone-frame {
-            width: 320px; height: 600px; /* Altura ajustada */
-            background: #000; border-radius: 40px; border: 8px solid #1e293b;
-            position: relative; overflow: hidden; 
+            width: 320px; 
+            height: 600px; /* Altura fixa para caber o site */
+            background: #000; 
+            border-radius: 40px; 
+            border: 8px solid #1e293b; /* Borda do celular */
+            position: relative; 
+            overflow: hidden; /* Corta o que passar */
             box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-            transform: rotateX(5deg); transition: transform 0.5s;
+            transform: rotateX(5deg); 
+            transition: transform 0.5s;
         }
         .phone-frame:hover { transform: rotateX(0deg) scale(1.02); }
 
-        /* A Tela Real (Iframe) */
+        /* O Iframe (Site Dentro do Celular) */
         .phone-frame iframe {
-            width: 100%; height: 100%; border: none;
-            background: white; /* Garante que não fique transparente */
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+            background: white; /* Fundo branco pra não ficar transparente */
         }
         
-        /* Um detalhe visual: A "Câmera" do celular */
+        /* Câmera Frontal (Notch) */
         .phone-frame::before {
             content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
             width: 150px; height: 25px; background: #1e293b;
@@ -103,25 +115,27 @@
             z-index: 10;
         }
 
-        /* BENEFÍCIOS (4) Animação */
-        .benefits { padding: 80px 0; }
+        /* BENEFÍCIOS */
+        .benefits { padding: 80px 0; background: #0f172a; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .card { 
             background: var(--card); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); 
-            transition: transform 0.3s ease, border-color 0.3s ease; /* Animação */
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .card:hover { transform: translateY(-10px); border-color: var(--primary); } /* Sobe ao passar o mouse */
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
         .card i { font-size: 2rem; color: var(--primary); margin-bottom: 20px; }
-        .card h3 { margin-bottom: 10px; }
+        .card h3 { margin-bottom: 10px; color: white; }
         .card p { color: var(--gray); font-size: 0.9rem; }
 
         /* OFERTA */
         .offer { background: linear-gradient(180deg, var(--card) 0%, var(--bg) 100%); padding: 80px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-        .offer h3 { font-size: 1.8rem; margin-bottom: 10px; } /* (5) Mudado texto */
-        .price { font-size: 3.5rem; font-weight: 900; margin: 20px 0; color: white; }
-        .price span { font-size: 1rem; color: var(--gray); font-weight: 400; vertical-align: middle; }
+        .offer h3 { font-size: 1rem; margin-bottom: 10px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; }
+        .offer h2 { font-size: 2rem; margin-bottom: 10px; color: white; }
         
-        .btn-whatsapp { background: var(--accent); color: white; width: 100%; max-width: 400px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-size: 1.2rem; margin-top: 10px; }
+        .price { font-size: 3.5rem; font-weight: 900; margin: 20px 0; color: white; }
+        .price span { font-size: 1.2rem; color: var(--gray); font-weight: 400; display: block; margin-top: 5px; }
+        
+        .btn-whatsapp { background: var(--accent); color: white; width: 100%; max-width: 400px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-size: 1.2rem; margin-top: 20px; }
         .btn-whatsapp:hover { background: #1ebc57; transform: scale(1.05); }
 
         /* FOOTER */
@@ -133,7 +147,9 @@
             h1 { font-size: 2rem; }
             .cta-group { flex-direction: column; }
             .btn { width: 100%; text-align: center; }
-            .phone-frame { width: 280px; height: 500px; }
+            
+            /* Ajuste do celular em telas pequenas */
+            .phone-frame { width: 280px; height: 520px; }
         }
     </style>
 </head>
@@ -153,7 +169,6 @@
             <span class="tag">Exclusivo para Lojas de Pisos</span>
             
             <h1>Pare de perder tempo fazendo orçamento para curioso.</h1>
-            
             <p>Transforme seu site em um vendedor 24h. O cliente calcula, vê o preço estimado e agenda a visita técnica sozinho no seu WhatsApp.</p>
             
             <div class="cta-group">
@@ -168,21 +183,6 @@
             <div class="mockup-wrapper">
                 <div class="phone-frame">
                     <iframe src="https://ashleymasterbr.github.io/Wireflame-M-quina-de-Or-amentos-Pisos/" title="Demonstração do Sistema" loading="lazy"></iframe>
-                </div>
-            </div>
-                    <div class="screen-content">
-                        <div class="fake-header"></div>
-                        <div class="fake-hero">
-                            <span style="opacity:0.8">SUA LOJA AQUI<br>Pisos Premium</span>
-                        </div>
-                        <div class="fake-calc">
-                            <div style="font-size:0.7rem; color:#333; margin-bottom:5px; font-weight:bold;">Metragem (m²)</div>
-                            <div class="fake-input"></div>
-                            <div style="font-size:0.7rem; color:#333; margin-bottom:5px; font-weight:bold; margin-top:10px;">Modelo</div>
-                            <div class="fake-input"></div>
-                            <div class="fake-btn"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -213,12 +213,12 @@
 
     <section class="offer">
         <div class="container">
-            <h3 style="color: var(--primary); text-transform: uppercase; font-size: 1rem; letter-spacing: 2px;">Investimento Inteligente</h3>
-            <h2 style="font-size: 2rem; margin-bottom: 10px;">Tenha sua Máquina de Agendamentos</h2>
+            <h3>Investimento Inteligente</h3>
+            <h2>Tenha sua Máquina de Vendas</h2>
             
             <div class="price">
                 R$ 997 
-                <span style="display:block; font-size:1.2rem; margin-top: 10px;">(Instalação e Configuração Completa)</span>
+                <span>(Instalação e Configuração Completa)</span>
             </div>
             <p style="margin-bottom: 30px; color: var(--gray);">+ Manutenção Mensal de R$ 149,00</p>
 
