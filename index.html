@@ -7,6 +7,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '864618009546901');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=864618009546901&ev=PageView&noscript=1"
+    /></noscript>
     <style>
         /* --- ESTILO DARK PREMIUM --- */
         :root {
@@ -44,7 +59,7 @@
         .btn-header {
             font-size: 0.9rem; font-weight: 600; color: white; border: 1px solid rgba(255,255,255,0.2);
             padding: 8px 16px; border-radius: 6px; text-decoration: none; transition: 0.3s;
-            display: flex; align-items: center; gap: 8px;
+            display: flex; align-items: center; gap: 8px; cursor: pointer;
         }
         .btn-header:hover { background: white; color: var(--bg); }
         .btn-header i { color: var(--whatsapp); font-size: 1.1rem; }
@@ -53,7 +68,6 @@
         .hero { 
             padding: 60px 0 80px 0; 
             text-align: center;
-            /* Garanta que existe 'fundo.jpg' na pasta */
             background: linear-gradient(rgba(15, 23, 42, 0.90), rgba(15, 23, 42, 0.98)), url('fundo.jpg');
             background-size: cover; background-position: center; background-attachment: fixed;
             position: relative;
@@ -135,7 +149,7 @@
 
         /* OFERTA COM TEXTURA */
         .offer { 
-            /* Gradiente Escuro + Imagem de Fundo (fundo-oferta.jpg) */
+            /* Importante: tenha 'fundo-oferta.jpg' na pasta */
             background: linear-gradient(rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.98)), url('fundo-oferta.jpg');
             background-size: cover; background-position: center; background-attachment: fixed;
             padding: 100px 0; 
@@ -180,7 +194,7 @@
                 <img src="logo.png" alt="Legado" onerror="this.src='https://placehold.co/40x40/3b82f6/FFF?text=L'"> 
                 <div class="brand-text">LEGADO PERFORMANCE DIGITAL</div>
             </div>
-            <a href="https://wa.me/5511913393797" class="btn-header">
+            <a href="https://wa.me/5511913393797" class="btn-header" onclick="fbq('track', 'Lead');">
                 <i class="fab fa-whatsapp"></i> Falar com Consultor
             </a>
         </div>
@@ -197,7 +211,7 @@
                 <a href="#oferta" class="btn btn-primary">
                     QUERO AUTOMATIZAR MINHA LOJA
                 </a>
-                <a href="sistema.superweb.fun" target="_blank" class="btn btn-outline">
+                <a href="https://ashleymasterbr.github.io/Wireflame-M-quina-de-Or-amentos-Pisos/" target="_blank" class="btn btn-outline">
                     <i class="fas fa-eye"></i> Ver Modelo Funcionando
                 </a>
             </div>
@@ -208,7 +222,7 @@
                 </div>
                 
                 <div class="mockup-cta">
-                    <a href="https://wa.me/5511913393797?text=Quero%20testar%20na%20minha%20loja" class="btn btn-action-main">
+                    <a href="https://wa.me/5511913393797?text=Quero%20testar%20na%20minha%20loja" class="btn btn-action-main" onclick="fbq('track', 'Lead');">
                         QUERO ESSA MÁQUINA DE VENDAS <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -238,7 +252,7 @@
             </div>
 
             <div style="text-align: center; margin-top: 20px;">
-                <a href="https://wa.me/5511913393797?text=Tenho%20uma%20d%C3%BAvida%20sobre%20o%20sistema" class="btn btn-outline">
+                <a href="https://wa.me/5511913393797?text=Tenho%20uma%20d%C3%BAvida%20sobre%20o%20sistema" class="btn btn-outline" onclick="fbq('track', 'Lead');">
                     <i class="fab fa-whatsapp"></i> Tirar Dúvidas no WhatsApp
                 </a>
             </div>
@@ -256,7 +270,7 @@
             </div>
             <p style="margin-bottom: 30px; color: var(--gray);">+ Manutenção Mensal de R$ 149,00</p>
 
-            <a href="https://wa.me/5511913393797?text=Ol%C3%A1%2C%20quero%20contratar%20a%20instala%C3%A7%C3%A3o%20do%20sistema%20de%20pisos." class="btn btn-action-main" style="padding: 20px 40px; font-size: 1.2rem;">
+            <a href="https://wa.me/5511913393797?text=Ol%C3%A1%2C%20quero%20contratar%20a%20instala%C3%A7%C3%A3o%20do%20sistema%20de%20pisos." class="btn btn-action-main" style="padding: 20px 40px; font-size: 1.2rem;" onclick="fbq('track', 'Lead');">
                 CONTRATAR AGORA <i class="fas fa-check-circle"></i>
             </a>
             
@@ -281,4 +295,3 @@
 
 </body>
 </html>
-
