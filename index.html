@@ -3,104 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pixel Studio | Automação para Lojas de Pisos</title>
+    <title>Legado Mídia | Automação para Lojas de Pisos</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         /* --- ESTILO DARK PREMIUM --- */
         :root {
-            --bg: #0f172a; /* Azul Noturno */
+            --bg: #0f172a;
             --card: #1e293b;
-            --primary: #3b82f6; /* Azul Tech */
-            --accent: #25D366; /* Verde Zap */
+            --primary: #3b82f6;
+            --accent: #25D366;
             --text: #f8fafc;
             --gray: #94a3b8;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        
         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
         
         /* HEADER */
-        header { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .logo { font-weight: 900; font-size: 1.2rem; letter-spacing: -1px; }
-        .logo span { color: var(--primary); }
+        header { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 100; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        
+        /* LOGO + TEXTO */
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand img { height: 40px; width: auto; } /* Ajuste a altura da logo aqui */
+        .brand-text { font-weight: 700; font-size: 1.1rem; color: white; text-transform: uppercase; letter-spacing: 1px; }
 
         /* HERO SECTION */
-        .hero { padding: 80px 0; text-align: center; }
-        .tag { background: rgba(59, 130, 246, 0.2); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 20px; }
-        h1 { 
-            font-size: 3rem; 
-            line-height: 1.1; 
-            margin-bottom: 20px; 
-            
-            /* O Gradiente do Texto */
-            background: linear-gradient(to right, #fff, #94a3b8); 
-            
-            /* A mágica que recorta o fundo no formato da letra */
-            -webkit-background-clip: text; /* Para navegadores baseados em Webkit (Chrome/Safari) */
-            background-clip: text;         /* Padrão oficial da Web (o que o VS Code pediu) */
-            
-            /* Deixa a cor da letra transparente para mostrar o fundo */
-            -webkit-text-fill-color: transparent; 
-            color: transparent; /* Fallback para garantir */
+        .hero { padding: 60px 0 80px 0; text-align: center; } /* (1) Padding topo reduzido */
+        
+        .tag { 
+            background: rgba(59, 130, 246, 0.15); color: var(--primary); border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 6px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; 
+            display: inline-block; margin-bottom: 25px; /* (1) Ajustado */
         }
         
-        /* BOTÕES DE AÇÃO */
-        .cta-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
-        .btn { padding: 15px 30px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: 0.3s; }
+        h1 { 
+            font-size: 3rem; line-height: 1.1; margin-bottom: 20px; 
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent; color: transparent;
+        }
         
+        .hero p { 
+            font-size: 1.2rem; color: var(--gray); max-width: 600px; margin: 0 auto; 
+            margin-bottom: 50px; /* (2) Espaço aumentado antes dos botões */
+        }
+        
+        /* BOTÕES */
+        .cta-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 16px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; transition: 0.3s; font-size: 1rem; }
         .btn-primary { background: var(--primary); color: white; box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
-        
         .btn-outline { border: 2px solid var(--gray); color: var(--text); }
         .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.05); }
 
-        /* MOCKUP (Visual da Ferramenta) */
-        .mockup-container { margin-top: 50px; position: relative; }
-        .mockup { width: 100%; max-width: 800px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        /* (3) MOCKUP CSS (O Celular Falso) */
+        .mockup-wrapper { margin-top: 60px; perspective: 1000px; display: flex; justify-content: center; }
+        .phone-frame {
+            width: 320px; height: 580px; background: #000; border-radius: 40px; border: 8px solid #333;
+            position: relative; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            transform: rotateX(5deg); transition: transform 0.5s;
+        }
+        .phone-frame:hover { transform: rotateX(0deg) scale(1.02); }
         
-        /* BENEFÍCIOS */
+        /* Conteudo Falso dentro do celular */
+        .screen-content { background: #fff; width: 100%; height: 100%; padding-top: 30px; }
+        .fake-header { background: #ff6b00; height: 50px; width: 100%; position: absolute; top:0; }
+        .fake-hero { background: #333; height: 180px; width: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8rem; text-align: center; padding: 10px; }
+        .fake-calc { 
+            background: white; width: 85%; margin: -40px auto 0 auto; padding: 15px; border-radius: 10px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); position: relative;
+        }
+        .fake-input { height: 30px; background: #eee; border-radius: 5px; margin-bottom: 10px; width: 100%; }
+        .fake-btn { height: 35px; background: #ff6b00; border-radius: 5px; width: 100%; margin-top: 10px; }
+
+        /* BENEFÍCIOS (4) Animação */
         .benefits { padding: 80px 0; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: var(--card); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .card { 
+            background: var(--card); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); 
+            transition: transform 0.3s ease, border-color 0.3s ease; /* Animação */
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); } /* Sobe ao passar o mouse */
         .card i { font-size: 2rem; color: var(--primary); margin-bottom: 20px; }
         .card h3 { margin-bottom: 10px; }
         .card p { color: var(--gray); font-size: 0.9rem; }
 
-        /* PREÇO E CTA FINAL */
+        /* OFERTA */
         .offer { background: linear-gradient(180deg, var(--card) 0%, var(--bg) 100%); padding: 80px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-        .price { font-size: 3.5rem; font-weight: 900; margin: 20px 0; }
-        .price span { font-size: 1rem; color: var(--gray); font-weight: 400; }
+        .offer h3 { font-size: 1.8rem; margin-bottom: 10px; } /* (5) Mudado texto */
+        .price { font-size: 3.5rem; font-weight: 900; margin: 20px 0; color: white; }
+        .price span { font-size: 1rem; color: var(--gray); font-weight: 400; vertical-align: middle; }
         
-        .btn-whatsapp { background: var(--accent); color: white; width: 100%; max-width: 350px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-size: 1.1rem; }
-        .btn-whatsapp:hover { background: #1ebc57; }
+        .btn-whatsapp { background: var(--accent); color: white; width: 100%; max-width: 400px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-size: 1.2rem; margin-top: 10px; }
+        .btn-whatsapp:hover { background: #1ebc57; transform: scale(1.05); }
+
+        /* FOOTER */
+        footer { background: #020617; text-align: center; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); color: var(--gray); font-size: 0.85rem; }
+        .cnpj { margin-top: 10px; opacity: 0.6; font-size: 0.75rem; }
 
         /* RESPONSIVO */
         @media(max-width: 600px) {
             h1 { font-size: 2rem; }
             .cta-group { flex-direction: column; }
             .btn { width: 100%; text-align: center; }
+            .phone-frame { width: 280px; height: 500px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <div class="logo">PIXEL<span>STUDIO</span></div>
+        <div class="container nav-flex">
+            <div class="brand">
+                <img src="logo.png" alt="Logo" onerror="this.style.display='none'"> 
+                <div class="brand-text">LEGADO MÍDIA</div>
+            </div>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
             <span class="tag">Exclusivo para Lojas de Pisos</span>
+            
             <h1>Pare de perder tempo fazendo orçamento para curioso.</h1>
+            
             <p>Transforme seu site em um vendedor 24h. O cliente calcula, vê o preço estimado e agenda a visita técnica sozinho no seu WhatsApp.</p>
             
             <div class="cta-group">
-                <a href="https://wa.me/5511913393797?text=Ol%C3%A1%2C%20vi%20o%20sistema%20de%20pisos%20e%20quero%20saber%20mais." class="btn btn-primary">
+                <a href="https://wa.me/5511913393797?text=Ol%C3%A1%2C%20vi%20o%20sistema%20da%20Legado%20e%20quero%20saber%20mais." class="btn btn-primary">
                     QUERO AUTOMATIZAR MINHA LOJA
                 </a>
                 <a href="https://ashleymasterbr.github.io/Wireflame-M-quina-de-Or-amentos-Pisos/" target="_blank" class="btn btn-outline">
@@ -108,15 +141,29 @@
                 </a>
             </div>
 
-            <div class="mockup-container">
-                <img src="https://placehold.co/800x450/1e293b/FFF?text=Preview+do+Sistema+no+Celular" alt="Preview do Sistema" class="mockup">
+            <div class="mockup-wrapper">
+                <div class="phone-frame">
+                    <div class="screen-content">
+                        <div class="fake-header"></div>
+                        <div class="fake-hero">
+                            <span style="opacity:0.8">SUA LOJA AQUI<br>Pisos Premium</span>
+                        </div>
+                        <div class="fake-calc">
+                            <div style="font-size:0.7rem; color:#333; margin-bottom:5px; font-weight:bold;">Metragem (m²)</div>
+                            <div class="fake-input"></div>
+                            <div style="font-size:0.7rem; color:#333; margin-bottom:5px; font-weight:bold; margin-top:10px;">Modelo</div>
+                            <div class="fake-input"></div>
+                            <div class="fake-btn"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="benefits">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">Por que você precisa disso hoje?</h2>
+            <h2 style="text-align: center; margin-bottom: 40px; color: white;">Por que você precisa disso hoje?</h2>
             <div class="grid">
                 <div class="card">
                     <i class="fas fa-filter"></i>
@@ -139,21 +186,32 @@
 
     <section class="offer">
         <div class="container">
-            <h3>Oferta de Lançamento</h3>
-            <p>Tenha o sistema definitivo de vendas de pisos.</p>
+            <h3 style="color: var(--primary); text-transform: uppercase; font-size: 1rem; letter-spacing: 2px;">Investimento Inteligente</h3>
+            <h2 style="font-size: 2rem; margin-bottom: 10px;">Tenha sua Máquina de Vendas</h2>
             
-            <div class="price">R$ 997 <span style="display:block; font-size:1.2rem;">(Taxa Única de Setup)</span></div>
+            <div class="price">
+                R$ 997 
+                <span style="display:block; font-size:1.2rem; margin-top: 10px;">(Instalação e Configuração Completa)</span>
+            </div>
             <p style="margin-bottom: 30px; color: var(--gray);">+ Manutenção Mensal de R$ 149,00</p>
 
-            <a href="https://wa.me/5511913393797?text=Ol%C3%A1%2C%20quero%20contratar%20o%20sistema%20de%20pisos%20agora." class="btn btn btn-whatsapp">
+            <a href="https://wa.me/5511913393797?text=Ol%C3%A1%2C%20quero%20contratar%20a%20instala%C3%A7%C3%A3o%20do%20sistema%20de%20pisos." class="btn btn btn-whatsapp">
                 <i class="fab fa-whatsapp"></i> CONTRATAR AGORA
             </a>
-            <p style="margin-top: 15px; font-size: 0.8rem; color: var(--gray);">Parcelamos o setup no cartão de crédito.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gray);">
+                <i class="fas fa-lock"></i> Compra segura. Parcelamos a instalação no cartão.
+            </p>
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 20px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; color: var(--gray);">
-        &copy; 2025 Pixel Studio. Todos os direitos reservados.
+    <footer>
+        <div class="container">
+            <div class="brand" style="justify-content: center; margin-bottom: 10px;">
+                <div class="brand-text">LEGADO MÍDIA</div>
+            </div>
+            <p>&copy; 2025 Legado Mídia. Todos os direitos reservados.</p>
+            <p class="cnpj">CNPJ: 14.689.880/0001-60</p>
+        </div>
     </footer>
 
 </body>
