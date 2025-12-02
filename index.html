@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legado Performance Digital | Acesso Antecipado</title>
+    <title>Legado Performance Digital | Oferta Especial</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -32,6 +32,7 @@
             --whatsapp: #25D366; /* Verde Oficial do Zap */
             --text: #f8fafc;
             --gray: #94a3b8;
+            --danger: #ef4444; /* Vermelho Escassez */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -149,7 +150,6 @@
 
         /* OFERTA COM TEXTURA */
         .offer { 
-            /* Importante: tenha 'fundo-oferta.jpg' na pasta */
             background: linear-gradient(rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.98)), url('fundo-oferta.jpg');
             background-size: cover; background-position: center; background-attachment: fixed;
             padding: 100px 0; 
@@ -159,10 +159,36 @@
         .offer h3 { font-size: 1rem; margin-bottom: 10px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; }
         .offer h2 { font-size: 2rem; margin-bottom: 10px; color: white; }
         
-        .price { font-size: 3.5rem; font-weight: 900; margin: 20px 0; color: white; }
-        .price span { font-size: 1.2rem; color: var(--gray); font-weight: 400; display: block; margin-top: 5px; }
+        .price-container {
+            margin: 30px 0;
+        }
+        .old-price {
+            display: block;
+            font-size: 1.2rem;
+            color: var(--gray);
+            text-decoration: line-through;
+            opacity: 0.7;
+            margin-bottom: -10px;
+        }
+        .price { font-size: 4rem; font-weight: 900; color: white; line-height: 1; }
+        .price small { font-size: 1.5rem; vertical-align: middle; }
+        .price span { font-size: 1rem; color: var(--action); font-weight: 600; display: block; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* FOOTER (1 Linha) */
+        .tag-promo {
+            background: var(--danger); color: white;
+            padding: 5px 15px; border-radius: 4px;
+            font-size: 0.8rem; font-weight: bold; text-transform: uppercase;
+            display: inline-block; margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* FOOTER */
         footer { background: #020617; padding: 25px 0; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--gray); }
         
         .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
@@ -183,6 +209,7 @@
             .btn { width: 100%; text-align: center; }
             .phone-frame { width: 300px; height: 600px; }
             .phone-frame iframe { width: 136.6%; height: 136.6%; transform: scale(0.73); }
+            .price { font-size: 3rem; }
         }
     </style>
 </head>
@@ -202,14 +229,14 @@
 
     <section class="hero">
         <div class="container">
-            <span class="tag">Exclusivo para Lojas de Pisos</span>
+            <span class="tag">Exclusivo para Lojas de Revestimento e Acabamentos</span>
             
             <h1>Pare de PERDER TEMPO fazendo orçamento para Curioso.</h1>
             <p>Transforme seu site em um vendedor 24h. O cliente calcula, vê o preço estimado e agenda a visita técnica sozinho no seu WhatsApp.</p>
             
             <div class="cta-group">
                 <a href="#oferta" class="btn btn-primary">
-                    QUERO AUTOMATIZAR MINHA LOJA
+                    QUERO AUTOMATIZAR MEUS AGENDAMENTOS
                 </a>
                 <a href="https://ashleymasterbr.github.io/Wireflame-M-quina-de-Or-amentos-Pisos/" target="_blank" class="btn btn-outline">
                     <i class="fas fa-eye"></i> Ver Modelo Funcionando
@@ -223,7 +250,7 @@
                 
                 <div class="mockup-cta">
                     <a href="https://wa.me/5511913393797?text=Quero%20testar%20na%20minha%20loja" class="btn btn-action-main" onclick="fbq('track', 'Lead');">
-                        QUERO ESSA MÁQUINA DE VENDAS <i class="fas fa-arrow-right"></i>
+                        QUERO ESSA MÁQUINA DE AGENDAMENTOS <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
@@ -261,21 +288,28 @@
 
     <section class="offer" id="oferta">
         <div class="container">
+            <div class="tag-promo"><i class="far fa-clock"></i> Exclusivo por Tempo Limitado</div>
             <h3>Acesso Antecipado</h3>
             <h2>Tenha sua Máquina de Agendamentos</h2>
             
-            <div class="price">
-                R$ 197 
-                <span>(Instalação e Configuração Completa)</span>
+            <div class="price-container">
+                <span class="old-price">De R$ 997,00</span>
+                <div class="price">
+                    <small>R$</small> 29,90 
+                    <span>(Taxa Única de Instalação)</span>
+                </div>
             </div>
-            <p style="margin-bottom: 30px; color: var(--gray);">+ Manutenção Mensal de R$ 149,00</p>
+            
+            <p style="margin-bottom: 30px; color: var(--gray); font-size: 0.9rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Aproveite essa condição especial de lançamento para validar a ferramenta no seu negócio com risco zero.
+            </p>
 
-            <a href="https://wa.me/5511913393797?text=Ol%C3%A1%2C%20quero%20contratar%20a%20instala%C3%A7%C3%A3o%20do%20sistema%20de%20pisos." class="btn btn-action-main" style="padding: 20px 40px; font-size: 1.2rem;" onclick="fbq('track', 'Lead');">
-                CONTRATAR AGORA <i class="fas fa-check-circle"></i>
+            <a href="https://wa.me/5511913393797?text=Ol%C3%A1%2C%20vi%20a%20promo%C3%A7%C3%A3o%20de%2029%2C90%20e%20quero%20instalar%20o%20sistema%20de%20pisos." class="btn btn-action-main" style="padding: 20px 40px; font-size: 1.2rem;" onclick="fbq('track', 'Lead');">
+                GARANTIR MINHA VAGA POR R$ 29,90 <i class="fas fa-check-circle"></i>
             </a>
             
             <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gray);">
-                <i class="fas fa-lock"></i> Compra segura. Parcelamos a instalação no cartão.
+                <i class="fas fa-lock"></i> Compra segura. Instalação Imediata.
             </p>
         </div>
     </section>
@@ -295,5 +329,3 @@
 
 </body>
 </html>
-
-
