@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -17,14 +16,12 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '201911516187534');
+    fbq('init', '726764003363302'); 
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=201911516187534&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=726764003363302&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
-
     <style>
         /* --- ESTILO DARK PREMIUM --- */
         :root {
@@ -32,7 +29,7 @@
             --card: #1e293b;
             --primary: #3b82f6; /* Azul Tech */
             --action: #f97316; /* Laranja Conversão */
-            --whatsapp: #25D366; /* Verde Oficial do Zap (Mantido apenas para referência se precisar) */
+            --whatsapp: #25D366; /* Verde Zap */
             --text: #f8fafc;
             --gray: #94a3b8;
             --danger: #ef4444; /* Vermelho Escassez */
@@ -59,14 +56,16 @@
         .brand img { height: 45px; width: auto; } 
         .brand-text { font-weight: 900; font-size: 1.1rem; color: white; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        /* Botão do Header */
+        /* Botão do Header (WhatsApp) */
         .btn-header {
-            font-size: 0.9rem; font-weight: 600; color: white; border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem; font-weight: 600; color: white; border: 1px solid rgba(37, 211, 102, 0.4);
             padding: 8px 16px; border-radius: 6px; text-decoration: none; transition: 0.3s;
             display: flex; align-items: center; gap: 8px; cursor: pointer;
+            background: rgba(37, 211, 102, 0.1);
         }
-        .btn-header:hover { background: var(--action); color: white; border-color: var(--action); }
-        .btn-header i { color: white; font-size: 1.1rem; }
+        .btn-header:hover { background: var(--whatsapp); color: white; border-color: var(--whatsapp); }
+        .btn-header i { color: var(--whatsapp); font-size: 1.1rem; }
+        .btn-header:hover i { color: white; }
 
         /* HERO SECTION */
         .hero { 
@@ -222,10 +221,10 @@
         <div class="container nav-flex">
             <div class="brand">
                 <img src="logo.png" alt="Legado" onerror="this.src='https://placehold.co/40x40/3b82f6/FFF?text=L'"> 
-                <div class="brand-text">LEGADO PERFORMANCE DIGITAL</div>
+                <div class="brand-text">LEGADO PD</div>
             </div>
-            <a href="https://pay.kiwify.com.br/s91lgaO" class="btn-header" onclick="fbq('track', 'InitiateCheckout');">
-                <i class="fas fa-rocket"></i> QUERO VENDER MAIS
+            <a href="https://wa.me/5511910620140?text=Ol%C3%A1!%20Tenho%20interesse%20na%20M%C3%A1quina%20de%20Agendamentos%20mas%20tenho%20d%C3%BAvidas." class="btn-header" target="_blank">
+                <i class="fab fa-whatsapp"></i> Falar no WhatsApp
             </a>
         </div>
     </header>
@@ -238,7 +237,7 @@
             <p>Transforme seu site em um vendedor 24h. O cliente calcula, vê o preço estimado e agenda a visita técnica sozinho no seu WhatsApp.</p>
             
             <div class="cta-group">
-                <a href="https://pay.kiwify.com.br/s91lgaO" class="btn btn-primary" onclick="fbq('track', 'InitiateCheckout');">
+                <a href="https://pay.kirvano.com/d7866b88-96f9-4d00-833f-67216ce631aa?src=lp_pixel_v4" class="btn btn-primary" onclick="fbq('track', 'InitiateCheckout');">
                     QUERO AUTOMATIZAR E VENDER MAIS
                 </a>
                 <a href="https://ashleymasterbr.github.io/Wireflame-M-quina-de-Or-amentos-Pisos/" target="_blank" class="btn btn-outline">
@@ -252,7 +251,7 @@
                 </div>
                 
                 <div class="mockup-cta">
-                    <a href="https://pay.kiwify.com.br/s91lgaO" class="btn btn-action-main" onclick="fbq('track', 'InitiateCheckout');">
+                    <a href="https://pay.kirvano.com/d7866b88-96f9-4d00-833f-67216ce631aa?src=lp_pixel_v4" class="btn btn-action-main" onclick="fbq('track', 'InitiateCheckout');">
                         QUERO ESSA MÁQUINA DE AGENDAMENTOS <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -282,7 +281,7 @@
             </div>
 
             <div style="text-align: center; margin-top: 20px;">
-                <a href="https://pay.kiwify.com.br/s91lgaO" class="btn btn-outline" style="border-color: var(--action); color: var(--action);" onclick="fbq('track', 'InitiateCheckout');">
+                <a href="https://pay.kirvano.com/d7866b88-96f9-4d00-833f-67216ce631aa?src=lp_pixel_v4" class="btn btn-outline" style="border-color: var(--action); color: var(--action);" onclick="fbq('track', 'InitiateCheckout');">
                     <i class="fas fa-check-circle"></i> QUERO INSTALAR AGORA
                 </a>
             </div>
@@ -307,7 +306,7 @@
                 Aproveite essa condição especial de lançamento para validar a ferramenta no seu negócio com risco zero.
             </p>
 
-            <a href="https://pay.kiwify.com.br/s91lgaO" class="btn btn-action-main" style="padding: 20px 40px; font-size: 1.2rem;" onclick="fbq('track', 'InitiateCheckout');">
+            <a href="https://pay.kirvano.com/d7866b88-96f9-4d00-833f-67216ce631aa?src=lp_pixel_v4" class="btn btn-action-main" style="padding: 20px 40px; font-size: 1.2rem;" onclick="fbq('track', 'InitiateCheckout');">
                 GARANTIR MINHA VAGA POR R$ 29,90 <i class="fas fa-check-circle"></i>
             </a>
             
